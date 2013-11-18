@@ -1,10 +1,3 @@
-/*
- * Fluxit S.A
- * La Plata - Buenos Aires - Argentina
- * http://www.fluxit.com.ar
- * Author: Gaspar Rajoy
- * Date:  Mar 21, 2013 - 3:11:27 PM
- */
 package com.common.model;
 
 import java.util.Date;

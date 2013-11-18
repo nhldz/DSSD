@@ -1,10 +1,3 @@
-/*
- * Fluxit S.A
- * La Plata - Buenos Aires - Argentina
- * http://www.fluxit.com.ar
- * Author: gaspar
- * Date:  Mar 6, 2013 - 3:19:07 PM
- */
 package com.common.exception;
 
 import javax.xml.bind.annotation.XmlAccessType;

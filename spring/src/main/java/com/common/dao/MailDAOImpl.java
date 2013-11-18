@@ -1,33 +1,22 @@
-/*
- * Fluxit S.A
- * La Plata - Buenos Aires - Argentina
- * http://www.fluxit.com.ar
- * Author: Gaspar Rajoy
- * Date:  Mar 21, 2013 - 3:50:24 PM
- */
 package com.common.dao;
 
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.common.model.Mail;
 
 /**
 
- * @author Gaspar Rajoy - Flux IT
+ * @author Gaspar Rajoy
 
  **/
-@Repository("mailService")
 @Transactional
 public class MailDAOImpl implements MailDAO {
 
 
-	@Autowired
     private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

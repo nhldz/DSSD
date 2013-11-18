@@ -11,11 +11,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import com.common.audit.Auditable;
-
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
-public class Person implements Auditable{
+public class Person {
 	@NotBlank(message="{user.add.name.blank}")
 	@Size(min=3,message="{user.add.name.size}")
 	private String name;

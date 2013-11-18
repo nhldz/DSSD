@@ -1,10 +1,3 @@
-/*
- * Fluxit S.A
- * La Plata - Buenos Aires - Argentina
- * http://www.fluxit.com.ar
- * Author: Gaspar Rajoy
- * Date:  Mar 21, 2013 - 3:35:47 PM
- */
 package com.common.dao;
 
 
@@ -15,7 +8,7 @@ import com.common.model.Mail;
 
 /**
 
- * @author Gaspar Rajoy - Flux IT
+ * @author Gaspar Rajoy
 
  **/
 public interface MailDAO {

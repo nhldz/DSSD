@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-  xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -8,23 +7,16 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
   ">
 
-  <context:component-scan base-package="com.common.model" />
-
+	<context:component-scan base-package="com.common.dao" />
 	<context:annotation-config />
- 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
-	 <bean id="logEntryDAO" name="logEntryDAO" class="com.common.audit.LogEntryDAOImpl" />
-	 <bean id="auditListener" name="auditListener" class="com.common.audit.AuditListener" lazy-init="true"/>
-
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/spring-mvc" />
+		<property name="url" value="jdbc:mysql://localhost:3306/RRHH" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
-
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -36,23 +28,14 @@
 				<value>com.common.model.Puesto</value>
 			</list>
 		</property>
-
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">-update</prop>
 				<prop key="hibernate.show_sql">false</prop>
 			</props>
 		</property>
-		
-<!--  		<property name="eventListeners"> -->
-<!-- 	        <map> -->
-<!-- 	            <entry key="save-update"><ref bean="auditListener" /></entry> -->
-<!-- 	        </map> -->
-<!-- 	    </property> -->
-		
 	</bean>
-
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />

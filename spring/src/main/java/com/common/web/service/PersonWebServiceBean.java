@@ -1,53 +1,40 @@
-/*
- * Fluxit S.A
- * La Plata - Buenos Aires - Argentina
- * http://www.fluxit.com.ar
- * Author: Gaspar Rajoy
- * Date:  Mar 26, 2013 - 1:37:06 PM
- */
 package com.common.web.service;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.common.model.Person;
-import com.common.service.PersonService;
+import com.common.model.Empleado;
+import com.common.model.Objetivo;
+import com.common.service.EmpleadoService;
 
 /**
  * 
- * @author Gaspar Rajoy - Flux IT
+ * @author Gaspar Rajoy
  **/
-@WebService(endpointInterface = "com.common.web.service.PersonWebService", serviceName="personService")
+
 public class PersonWebServiceBean implements PersonWebService {
 
-	@Autowired
-	private PersonService personService;
+	private EmpleadoService personService;
 
 	/**
 	 * @param personService
 	 *            the personService to set
 	 */
-	public void setPersonService(PersonService personService) {
+	public void setPersonService(EmpleadoService personService) {
 		this.personService = personService;
 	}
 
-	@Override
-	@WebMethod
-	public Person personDetail(@WebParam(name = "personId")
-	String personId) {
+	public Empleado getEmpleado(String cuit) {
 
-		// if (Integer.parseInt(personId) < 10){
+		Empleado person = personService.getEmpleado(cuit);
 
-		Person person = personService.getPerson(personId);
-		System.out.println(person);
 		return person;
-		// }
-		// else{
-		// throw new WebServiceException();
-		// }
 	}
 
+	public List<Objetivo> getObjetivosParaEmpleado(String cuit) {
+
+		Empleado person = personService.getEmpleado(cuit);
+
+		return person.getPuesto().getObjetivos();
+	}
+	
 }
