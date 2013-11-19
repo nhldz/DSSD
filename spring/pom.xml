@@ -387,8 +387,6 @@
 		
 	</dependencies>
 
-
-
 	<build>
 		<finalName>spring</finalName>
 		<plugins>
@@ -407,6 +405,8 @@
 				<configuration>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
+					<meminitial>1024m</meminitial>
+            		<maxmem>2024m</maxmem>
 				</configuration>
 			</plugin>
 			<plugin>
