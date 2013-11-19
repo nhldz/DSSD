@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.common.model.Empleado;
 import com.common.model.Objetivo;
+import com.common.model.Puesto;
 import com.common.service.EmpleadoService;
+import com.common.service.PuestoService;
 
 /**
  * 
@@ -14,6 +16,7 @@ import com.common.service.EmpleadoService;
 public class PersonWebServiceBean implements PersonWebService {
 
 	private EmpleadoService personService;
+	private PuestoService puestoService;
 
 	/**
 	 * @param personService
@@ -35,6 +38,25 @@ public class PersonWebServiceBean implements PersonWebService {
 		Empleado person = personService.getEmpleado(cuit);
 
 		return person.getPuesto().getObjetivos();
+	}
+
+	@Override
+	public boolean promoverEmpleado(String cuit) {
+		Empleado empleado = personService.getEmpleado(cuit);
+		Puesto nuevoPuesto = this.getPuestoService().getPuestoById(8L);
+		
+		empleado.setPuesto(nuevoPuesto);
+		personService.updateEmpleado(empleado);
+		
+		return true;
+	}
+
+	public PuestoService getPuestoService() {
+		return puestoService;
+	}
+
+	public void setPuestoService(PuestoService puestoService) {
+		this.puestoService = puestoService;
 	}
 	
 }

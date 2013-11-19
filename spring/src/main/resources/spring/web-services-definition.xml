@@ -8,6 +8,8 @@
 
   <bean id="personServiceImpl" class="com.common.web.service.PersonWebServiceBean">
     <property name="personService" ref="empleadoService"/>
+     <property name="puestoService" ref="puestoService"/>
+    
   </bean>
   
   

@@ -13,8 +13,12 @@
 		<property name="empleadoDAO" ref="empleadoDAO" />
 	</bean>
 
-	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
-		<property name="locations"> <list> <value>classpath:configuration.properties</value> 
-		</list> </property> </bean> -->
+	<bean name="puestoDAO" class="com.common.dao.PuestoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean name="puestoService" class="com.common.service.PuestoServiceDB">
+		<property name="puestoDAO" ref="puestoDAO" />
+	</bean>
 
 </beans>

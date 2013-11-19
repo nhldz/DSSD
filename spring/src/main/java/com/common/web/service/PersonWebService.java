@@ -24,4 +24,8 @@ public interface PersonWebService {
 	@WebMethod
 	@WebResult(name="objetivos")
 	public List<Objetivo> getObjetivosParaEmpleado(@WebParam(name="cuit") String cuit);
+	
+	@WebMethod
+	@WebResult(name="promovido")
+	public boolean promoverEmpleado(@WebParam(name="cuit") String cuit);
 }
